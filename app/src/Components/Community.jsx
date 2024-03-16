@@ -1,9 +1,12 @@
 import React from 'react'
-
+import ResReg from './SignUp/ResReg'
 const Community = () => {
   return (
     <div>
-      Community
+    <div class="main"></div>
+    <div class="main">
+      <ResReg/>
+    </div>
     </div>
     
   )
