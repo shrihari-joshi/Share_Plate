@@ -1,9 +1,14 @@
 /* Navbar.css */
-
+body{
+  margin: 0;
+}
 .Navbar {
-  width: 100%;
+  width: 100vw;
   color: #fdf0d5;
   position: relative;
+ margin: 0;
+ padding: 0;
+
 }
 
 .NavContainer {

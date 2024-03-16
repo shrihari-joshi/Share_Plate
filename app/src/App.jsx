@@ -11,7 +11,7 @@ import Donate from './Donate';
 
 const App = () => {
   return (
-    <div>
+    <>
       <div>
         <Navbar /> 
       </div>
@@ -28,7 +28,7 @@ const App = () => {
           
         </Routes>
       </div>
-    </div>
+    </>
   );
 };
 
