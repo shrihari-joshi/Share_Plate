@@ -56,7 +56,7 @@ exports.donateFood = async (req, res) => {
         });
 
         // Save the updated restaurant and respond with success message
-        console.log('food donated successfully')
+        console.log('food donated successfull')
         await restaurant.save();
         res.status(200).json({ message: 'Food donated successfully' });
     } catch (error) {
