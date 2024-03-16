@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Example from '../Example/Example'
-import pic1 from './image1.jpg';
-import pic2 from './image2.jpg';
-import pic3 from './image3.jpg';
 import './Homepage.css';
 
 const Homepage = () => {

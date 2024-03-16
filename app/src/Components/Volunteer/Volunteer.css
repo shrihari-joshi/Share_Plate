@@ -1,0 +1,120 @@
+.Volu{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.node{
+    height: 100%;
+    width: 50%;
+    /* border-left:2px solid #201c1c; */
+}
+.form {
+    height: 100vh;
+    width:25vw;
+    display: flex;
+    flex-direction: column;
+    /* margin-top: vh; */
+    /* margin-left; */
+    gap: 40px;
+    padding: 20px;
+    border-radius: 20px;
+    position: relative;
+    color:black;
+  }
+  
+ .details{
+    width:30vw;
+    height:50vh;
+    margin-left:15vw;
+
+ }
+.details p{
+    font-size: x-large;
+}
+.details h2{
+    font-size: xx-large;
+}
+ .form h2{
+    margin-left:13vw;
+    font-size: xx-large;
+    font-weight:1500;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    margin-bottom: 0%;
+}
+
+  
+  .flex {
+    display: flex;
+    width: 100%;
+    gap: 6px;
+  }
+  
+  .form label {
+    position: relative;
+    width: 130%;
+  }
+  
+  .form label .input {
+    color: black;
+    width: 100%;
+    padding: 20px 05px 05px 10px;
+    outline: 0;
+    border: 1px solid rgba(105, 105, 105, 0.397);
+    border-radius: 10px;
+  }
+  
+  .form label .input + span {
+    color: rgba(255, 255, 255, 0.5);
+    position: absolute;
+    left: 10px;
+    top: 0px;
+    font-size: 0.9em;
+    cursor: text;
+    transition: 0.3s ease;
+  }
+  
+  .form label .input:placeholder-shown + span {
+    top: 12.5px;
+    font-size: 0.9em;
+  }
+  
+  .form label .input:focus + span,
+  .form label .input:valid + span {
+    color: #000000;
+    top: 0px;
+    font-size: 1em;
+    font-weight: 600;
+  }
+  
+  .input {
+    font-size: medium;
+  }
+  
+  .submit {
+    border: none;
+    outline: none;
+    padding: 10px;
+    margin-left: 8vw;
+    border-radius: 10px;
+    color: #fff;
+    font-size: 16px;
+    transform: .3s ease;
+    background-color: #780000;
+  }
+  
+  .submit:hover {
+    background-color: #9a0505;
+  }
+  
+  @keyframes pulse {
+    from {
+      transform: scale(0.9);
+      opacity: 1;
+    }
+  
+    to {
+      transform: scale(1.8);
+      opacity: 0;
+    }
+  }
