@@ -1,4 +1,5 @@
 const Restaurant = require('../models/Restaurant');
+const Ngo = require('../models/Ngo')
 
 exports.getRestaurants = async (req, res) => {
     try {
@@ -27,9 +28,9 @@ exports.addFood = async (req, res) => {
         } else {
             const existingFoodItem = restaurant.foodItems.find(item => item.item === foodItem);
             if (existingFoodItem) {
-                existingFoodItem.quantity += 1;
+                existingFoodItem.quantity += quantity;
             } else {
-                restaurant.foodItems.push({ item: foodItem, expiryDate: new Date(expirydate), quantity: 1 });
+                restaurant.foodItems.push({ item: foodItem, expiryDate: new Date(expirydate), quantity: quantity });
             }
         }
 
@@ -40,3 +41,26 @@ exports.addFood = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+
+exports.donateFood = async (req, res) => {
+    try {
+        const restaurant = await Restaurant.findOne({ name: restaurantName });
+        const ngo = await Ngo.findOne({ name: ngoName });
+
+        if (!restaurant || !ngo) {
+            return res.status(400).json({ message: 'All fields are mandatory' });
+        }
+
+        restaurant.foodItems.forEach(item => {
+            item.quantity = 0;
+        });
+
+        // Save the updated restaurant and respond with success message
+        console.log('food donated successfully')
+        await restaurant.save();
+        res.status(200).json({ message: 'Food donated successfully' });
+    } catch (error) {
+        console.error('Error donating food:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+}

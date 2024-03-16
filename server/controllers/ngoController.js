@@ -28,8 +28,7 @@ exports.registerNGO = async (req, res) => {
             name,
             location,
             contactNum,
-            scale,
-            isFoodAvailable,
+            scale
         });
 
         await newNGO.save();
@@ -39,3 +38,4 @@ exports.registerNGO = async (req, res) => {
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+
