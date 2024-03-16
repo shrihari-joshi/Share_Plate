@@ -28,7 +28,19 @@ body::after {
   width: 100%;
   background-color: rgba(0,0,0,0.8);*
 } */
-
+.baba{
+    display: flex;
+    display: flex;
+    background-image: url('./image.png');
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+}
 section {
   position: relative;
   z-index: 3;
@@ -62,7 +74,7 @@ section {
 
 .row  {
   display: flex;
-  flwx-wrap: wrap;
+  flx-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
@@ -79,7 +91,7 @@ section {
 .contact-info-icon {
   height: 70px;
   width: 70px;
-  background-color: #131313;
+  background-color: #332424;
   text-align: center;
   border-radius: 50%;
 }
@@ -105,7 +117,7 @@ section {
 }
 
 .contact-form {
-  background-color: #000000;
+  background-color: #dbe0e0;
   padding: 40px;
   width: 45%;
   padding-bottom: 20px;
@@ -116,7 +128,7 @@ section {
   font-weight: bold;
   font-size: 2em;
   margin-bottom: 10px;
-  color: #333;
+  color: #4b1212;
 }
 
 .contact-form .input-box {
@@ -132,7 +144,7 @@ section {
   font-size: 16px;
   margin: 10px 0;
   border: none;
-  border-bottom: 2px solid #333;
+  border-radius: 4px;
   outline: none;
   resize: none;
 }
@@ -150,7 +162,7 @@ section {
 
 .contact-form .input-box input:focus ~ span,
 .contact-form .input-box textarea:focus ~ span{
-  color: #e91e63;
+  color: #771d1d;
   font-size: 12px;
   transform: translateY(-20px);
 }
@@ -158,8 +170,8 @@ section {
 .contact-form .input-box input[type="submit"]
 {
   width: 100%;
-  background: #00bcd4;
-  color: #040404;
+  background: #780000;
+  color: #ffffff;
   border: none;
   cursor: pointer;
   padding: 10px;
@@ -167,6 +179,9 @@ section {
   border: 1px solid #00bcd4;
   transition: 0.5s;
 }
+.submit:hover {
+    background-color: #9a0505;
+  }
 
 .contact-form .input-box input[type="submit"]:hover
 {
