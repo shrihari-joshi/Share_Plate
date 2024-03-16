@@ -28,8 +28,9 @@ app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 app.use('/', express.static(path.join(__dirname, '/public')));
 
-app.use('/', require('./routers/restaurants.js'))
 app.use('/', require('./routers/foodAvailability.js'));
+app.use('/', require('./routers/restaurants.js'))
+app.use('/', require('./routers/restaurants.js'))
 
 mongoose.connection.once('open', () => {
   console.log('Connected to MongoDB');

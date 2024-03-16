@@ -20,8 +20,10 @@ const ngoSchema = new mongoose.Schema({
   },
   isFoodAvailable : {
     type : Boolean,
-    default : false,
-    required : true
+    default : false
+  },
+  volunteer : {
+    type : String
   }
 });
 
