@@ -1,6 +1,6 @@
-import React from "react";
-import RestaurantForm from "../../ResReg/ResReg";
-import pic1 from "./images/image.png";
+import React from 'react'
+import RestaurantForm from '../../ResReg/ResReg'
+import pic1 from '../images/image.png'
 const Community = () => {
   return (
     <div>

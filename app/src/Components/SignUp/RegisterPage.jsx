@@ -17,10 +17,19 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform form validation here before submitting
-    // For now, we'll just log the data to the console
-    console.log(formData);
-    // You can also send this data to your backend for further processing
+    console.log(formData); // Debug statement to check the formData object
+
+    // Store name and location in local storage
+    localStorage.setItem('name', formData.name);
+    localStorage.setItem('location', formData.location);
+
+    // Optional: Clear form fields after submission
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      name: '',
+      contactNumber: '',
+      location: '',
+    }));
   };
 
   return (

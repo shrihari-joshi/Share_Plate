@@ -2,7 +2,11 @@ import React from 'react'
 
 const Distributors = () => {
   return (
-    <div>Distributors</div>
+    
+    <div>
+      <p>Distributors</p>
+      
+    </div>
   )
 }
 
