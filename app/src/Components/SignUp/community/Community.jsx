@@ -9,6 +9,7 @@ const Community = () => {
       <ResReg/>
     </div>
     </div>
+    
   )
 }
 
