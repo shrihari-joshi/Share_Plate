@@ -48,7 +48,7 @@ const Navbar = () => {
             <Link className='linked' to='/volunteers'>Volunteers</Link>
           </div>
           {/* Distributors tab with dropdown */}
-          <div className='NavLink' onClick={toggleDropdown}>
+          <div className='NavLink1 NavLink' onClick={toggleDropdown}>
             <div className='linked'>Distributors</div>
             {/* Dropdown menu */}
             {dropdownVisible && (
