@@ -1,0 +1,23 @@
+.ImgDiv{
+    width:25vw;
+    height:50vh;
+    margin:10vw;
+}
+.sideImage{
+    width:25vw;
+    height:50vh;
+    object-fit: cover;
+}
+.Main{
+    display: flex;
+    
+}
+.bee{
+    height: 100%;
+    width: 50%;
+}
+.hello{
+    margin: 0 10vw;
+    width: 50%;
+    height:60%;
+}

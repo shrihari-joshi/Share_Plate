@@ -1,11 +1,11 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Aboutus from './Components/Aboutus';
+import Aboutus from './Components/AboutUs/Aboutus';
 import Contactus from './Components/Contactus';
-import Community from './Components/Community';
+import Community from './Components/Community/Community';
 import Distributors from './Components/Distributors';
 import Navbar from './Components/Navbar/Navbar';
-import Volunteers from './Components/Volunteers';
+import Volunteers from './Components/Volunteer/Volunteer';
 import Homepage from './Components/Homepage/Homepage';
 import Donate from './Donate';
 import NGO from './Components/NGO';
