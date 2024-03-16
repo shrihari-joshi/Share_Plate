@@ -8,7 +8,6 @@ import Navbar from './Components/Navbar/Navbar';
 import Volunteers from './Components/Volunteers';
 import Homepage from './Components/Homepage/Homepage';
 import Donate from './Donate';
-import FoodBank from './FoodBank';
 
 const App = () => {
   return (
@@ -26,8 +25,6 @@ const App = () => {
           <Route exact path='/distributors' element={<Distributors />} />
           <Route exact path='/community' element={<Community />} />
           <Route exact path='/donate' element={<Donate />} />
-          <Route exact path='/ngo' element={<NGO />} />
-          <Route exact path='/foodbank' element={<FoodBank />} />
           
         </Routes>
       </div>
