@@ -29,8 +29,11 @@ const Homepage = () => {
   return (
     <div className="container">
       <div className="description">
-        <h1>Welcome Enthusiasts</h1>
-        <div>Let's Turn <Example/> </div>
+        <h1 className='Head'>Welcome Enthusiasts</h1>
+        <div className='Faltu'>
+          <div className='A'>Let's Turn</div>
+          <div><Example /></div>
+        </div>
       </div>
 
     </div>
