@@ -25,6 +25,7 @@ exports.checkFoodAvailability = async (req, res) => {
 
     if (availFoodArray.length > 0) {
       // Respond with success and available food items in JSON format
+      console.log('food available');
       res.json({ success: true, availFoodArray });
     } else {
       // Respond with no food available
