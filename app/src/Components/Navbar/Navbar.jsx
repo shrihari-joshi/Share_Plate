@@ -19,7 +19,7 @@ const Navbar = () => {
             <Link className='linked' to='/'>Home</Link>
           </div>
           <div className='NavLink'>
-            <Link className='linked' to='/community'>Community</Link> 
+            <Link className='linked' to='/community'>Communities  </Link> 
           </div>
 
           <div className='NavLink'>

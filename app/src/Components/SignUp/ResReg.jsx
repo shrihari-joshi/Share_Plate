@@ -79,8 +79,15 @@ const MapsWithLocationAndForm = () => {
 
     return (
         <div>
-            <h1>NGOs Nearby</h1>
-            <p>Latitude: {coordinates ? coordinates[0] : 'Loading...'}, Longitude: {coordinates ? coordinates[1] : 'Loading...'}</p>
+          <h2>Gratitude in Action: Extending Heartfelt Thanks to Restaurants, Caterers, and Groceries 
+            for Nourishing Communities in Need through Our Platform!"</h2>
+          <p>Amidst the challenges faced by many, our platform stands as a beacon of hope and generosity. 
+            We extend our deepest appreciation to the restaurants, caterers, grocery stores and many individuals 
+            whose unwavering 
+            support and donations have fueled our mission of providing nourishment to those in need. 
+            Through their selfless contributions, countless individuals and families have found relief and 
+            sustenance during difficult times. Together, we are making a tangible difference in 
+            the lives of many, one meal at a time.</p>
             <form onSubmit={handleSubmit}>
                 <div>
                     <label htmlFor="name">Name:</label>
@@ -128,11 +135,12 @@ const MapsWithLocationAndForm = () => {
                         required
                     />
                 </div>
-
+                <p>Latitude: {coordinates ? coordinates[0] : 'Loading...'} and Longitude: {coordinates ? coordinates[1] : 'Loading...'}</p>
+            
                 <button type="submit">Submit</button>
             </form>
 
-            <h2>NGOs Nearby</h2>
+            
             {ngos ? (
                 <ul>
                     {ngos.map((ngo, index) => (
