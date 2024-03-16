@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 
 const Chatgpt = () => {
-    const [responseData, setResponseData] = useState(null);
+    const [lat, setLat] = useState(null);
+    const [lng, setLng] = useState(null);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -10,7 +11,7 @@ const Chatgpt = () => {
                 method: 'GET',
                 url: 'https://maps-data.p.rapidapi.com/geocoding.php',
                 params: {
-                  query: 'infinity mall malad',
+                  query: 'juhu beach    ',
                   lang: 'en',
                   country: 'in'
                 },
@@ -22,7 +23,9 @@ const Chatgpt = () => {
               
               try {
                   const response = await axios.request(options);
-                  console.log(response.data);
+                  console.log(response); // Log the entire response object
+                  setLat(response.data.data.lat); // Update state with response data
+                  setLng(response.data.data.lng); // Update state with response data
               } catch (error) {
                   console.error(error);
               }
@@ -33,9 +36,9 @@ const Chatgpt = () => {
 
     return (
         <div>
-            {responseData && (
-                <p>{JSON.stringify(responseData, null, 2)}</p>
-            )}
+            
+                <p>Latitude: {lat}, Longitude: {lng}</p>
+            
         </div>
     );
 }
