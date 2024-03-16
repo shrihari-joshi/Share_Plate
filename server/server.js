@@ -28,3 +28,8 @@ app.use('/', express.static(path.join(__dirname, '/public')));
 
 app.use('/', require('./routers/restaurants.js'))
 app.use('/', require('./routers/foodAvailability.js'));
+
+mongoose.connection.once('open', () => {
+  console.log('Connected to MongoDB');
+  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+});

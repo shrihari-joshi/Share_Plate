@@ -16,7 +16,7 @@ exports.checkFoodAvailability = async (req, res) => {
                 if (item.quantity > 0) {
                     availFoodArray.push({
                         item: item.item,
-                        quantity: item.quantity,
+                        quantity: item.quantity
                     });
                 }
             }

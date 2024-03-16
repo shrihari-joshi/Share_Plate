@@ -1,0 +1,64 @@
+/* Navbar.css */
+
+.Navbar {
+    width: 100%;
+  }
+  
+  .NavContainer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 10px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .NavHead {
+    display: flex;
+    align-items: center;
+  }
+  
+  .Logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333333;
+    margin-right: 10px;
+  }
+  
+  .Title {
+    font-size: 20px;
+    color: #333333;
+  }
+  
+  .ElemContainer {
+    display: flex;
+  }
+  
+  .NavLink {
+    font-size: 16px;
+    color: #333333;
+    margin: 0 10px;
+    cursor: pointer;
+  }
+  
+  /* Media queries for responsiveness */
+  @media screen and (max-width: 768px) {
+    .NavContainer {
+      flex-direction: column;
+      padding: 20px;
+    }
+  
+    .NavHead {
+      margin-bottom: 20px;
+    }
+  
+    .ElemContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .NavLink {
+      margin: 10px 0;
+    }
+  }
+  

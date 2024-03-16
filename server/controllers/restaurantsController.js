@@ -1,37 +1,42 @@
-const Restaurant = require('../models/Restaurant')
+const Restaurant = require('../models/Restaurant');
 
 exports.getRestaurants = async (req, res) => {
-    const hotels = await Restaurant.find()
-    if (!hotels) {
-        return res.status(204).json({ 'message' : 'No hotels found yet'})
+    try {
+        const restaurants = await Restaurant.find();
+        if (restaurants.length === 0) {
+            return res.status(204).json({ message: 'No restaurants found yet' });
+        }
+        res.json(restaurants);
+    } catch (error) {
+        console.error('Error fetching restaurants:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-    res.json(hotels)
-}
-
+};
 
 exports.addFood = async (req, res) => {
-    const { restaurantName, foodItem, quantity } = req.body;
+    const { restaurantName, location, foodItem, quantity , expirydate } = req.body;
 
     try {
-        const restaurant = await Restaurant.findOne({ name: restaurantName });
-
+        let restaurant = await Restaurant.findOne({ name: restaurantName });
         if (!restaurant) {
-            return res.status(404).json({ message: 'Restaurant not found' });
-        }
-
-        const existingFoodItem = restaurant.foodItems.find(item => item.item === foodItem);
-
-        if (existingFoodItem) {
-            existingFoodItem.quantity += quantity;
+            restaurant = new Restaurant({
+                name: restaurantName,
+                location: location,
+                foodItems: [{ item: foodItem, quantity : quantity, expiryDate: new Date(expirydate), quantity: 1 }],
+            });
         } else {
-            restaurant.foodItems.push({ item: foodItem, quantity });
+            const existingFoodItem = restaurant.foodItems.find(item => item.item === foodItem);
+            if (existingFoodItem) {
+                existingFoodItem.quantity += 1;
+            } else {
+                restaurant.foodItems.push({ item: foodItem, expiryDate: new Date(expirydate), quantity: 1 });
+            }
         }
-        await restaurant.save();
 
+        await restaurant.save();
         res.status(200).json({ message: 'Food item added/updated successfully', restaurant });
     } catch (error) {
         console.error('Error adding food item:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
-
