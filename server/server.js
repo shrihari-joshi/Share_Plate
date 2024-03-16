@@ -10,15 +10,17 @@ const PORT = process.env.PORT || 3500;
 // Corrected MongoDB connection URL
 const CONNECTION_URL = "mongodb+srv://mahmayur06:Mayur123@cluster0.pxcsm3r.mongodb.net/food?retryWrites=true&w=majority&appName=Cluster0";
 
-mongoose.connect(CONNECTION_URL, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-}).then(() => {
-  console.log('Connected to MongoDB successfully');
-  app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-}).catch(err => {
-  console.error('Error connecting to MongoDB:', err);
-});
+const connectDB = async () => {
+    try {
+        await mongoose.connect(CONNECTION_URL, {
+            useUnifiedTopology: true,
+            useNewUrlParser: true
+        });
+    } catch (err) {
+        console.error(err);
+    }
+}
+connectDB()
 
 app.use(credentials);
 app.use(cors(corsOptions));
