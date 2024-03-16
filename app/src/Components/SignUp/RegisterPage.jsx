@@ -25,7 +25,7 @@ function SignupForm() {
 
   return (
     <div>
-      <h2>NGO Registration Form</h2>
+      <h2>Details</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
