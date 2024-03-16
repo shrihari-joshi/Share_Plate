@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import './ResReg.css'
 function RestaurantForm() {
   const [formData, setFormData] = useState({
     name: '',
@@ -37,8 +37,7 @@ function RestaurantForm() {
   return (
     <div>
       <h2>Restaurant Details</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
+      <form className="fo"onSubmit={handleSubmit}>
           <label htmlFor="name">Name:</label>
           <input
             type="text"
@@ -48,8 +47,6 @@ function RestaurantForm() {
             onChange={(e) => setFormData({ ...formData, name: e.target.value })}
             required
           />
-        </div>
-        <div>
           <label htmlFor="location">Location:</label>
           <input
             type="text"
@@ -59,7 +56,6 @@ function RestaurantForm() {
             onChange={(e) => setFormData({ ...formData, location: e.target.value })}
             required
           />
-        </div>
         <div>
           <h3>Food Items:</h3>
           {formData.foodItems.map((foodItem, index) => (
