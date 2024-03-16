@@ -35,23 +35,5 @@ h1{
     font-weight: lighter;
 }
 
-.slider-frame{
-    overflow: hidden;
-    height: 1000px;
-    width: 800px;
-    /* margin-left: 360px;
-    margin-top: 20px; */
-    margin:8vh;
-    /* margin-top:10%; */
-}
-
-.img-container{
-    height: 600px;
-    width: 800px;
-    position: relative;
-    float: left;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
 
 
