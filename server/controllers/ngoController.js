@@ -16,7 +16,7 @@ exports.getAllNGOs = async (req, res) => {
 
 // Controller function to register a new NGO
 exports.registerNGO = async (req, res) => {
-    const { name, location, contactNum, scale, isFoodAvailable } = req.body;
+    const { name, contactNum, scale } = req.body;
 
     try {
         const existingNGO = await NGO.findOne({ name });
@@ -26,7 +26,6 @@ exports.registerNGO = async (req, res) => {
 
         const newNGO = new NGO({
             name,
-            location,
             contactNum,
             scale
         });
