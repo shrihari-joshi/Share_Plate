@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Aboutus from './Components/Aboutus';
 import Contactus from './Components/Contactus';
-import Community from './Components/Community';
+import Community from './Components/SignUp/community/Community';
 import Distributors from './Components/Distributors';
 import Navbar from './Components/Navbar/Navbar';
 import Volunteers from './Components/Volunteers';

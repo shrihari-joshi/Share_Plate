@@ -1,5 +1,6 @@
 import React from 'react'
-import ResReg from './SignUp/ResReg'
+import ResReg from '../ResReg'
+import pic1 from
 const Community = () => {
   return (
     <div>
