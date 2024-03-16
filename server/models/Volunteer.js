@@ -17,6 +17,10 @@ const volunteerSchema = new Schema({
     contactNumber: {
         type: String,
         required: true
+    },
+    working_for : {
+        type : mongoose.Schema.Types.ObjectId,
+        ref : 'Ngo'
     }
 });
 
