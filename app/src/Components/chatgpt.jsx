@@ -11,7 +11,7 @@ const Chatgpt = () => {
                 method: 'GET',
                 url: 'https://maps-data.p.rapidapi.com/geocoding.php',
                 params: {
-                  query: 'juhu beach    ',
+                  query: 'juhu beach',
                   lang: 'en',
                   country: 'in'
                 },

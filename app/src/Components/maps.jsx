@@ -10,7 +10,7 @@ const Maps = () => {
                 method: 'GET',
                 url: 'https://map-places.p.rapidapi.com/nearbysearch/json',
                 params: {
-                    location: '19.1075424,72.8263142',
+                    location: '19.18611111,72.84861111',
                     radius: '1500',
                     keyword: 'veg',
                     type: 'restaurant'

@@ -7,8 +7,9 @@ import Distributors from './Components/Distributors';
 import Navbar from './Components/Navbar/Navbar';
 import Volunteers from './Components/Volunteers';
 import Homepage from './Components/Homepage/Homepage';
-import Maps from './Components/maps';
-import Chatgpt from './Components/chatgpt';
+import Donate from './Donate';
+import NGO from './Components/NGO';
+import FoodBank from './Components/FoodBank';
 
 const App = () => {
   return (
@@ -19,12 +20,15 @@ const App = () => {
       <div>
         <Routes>
 
-          <Route path='/' element={<Homepage />} />
-          <Route path='/aboutus' element={<Aboutus />} />
-          <Route path='/contactus' element={<Contactus />} />
-          <Route path='/volunteers' element={<Volunteers />} />
-          <Route path='/distributors' element={<Distributors />} />
-          <Route path='/community' element={<Community />} />
+          <Route exact path='/' element={<Homepage />} />
+          <Route exact path='/aboutus' element={<Aboutus />} />
+          <Route exact path='/contactus' element={<Contactus />} />
+          <Route exact path='/volunteers' element={<Volunteers />} />
+          <Route exact path='/distributors' element={<Distributors />} />
+          <Route exact path='/community' element={<Community />} />
+          <Route exact path='/donate' element={<Donate />} />
+          <Route exact path='/ngo' element={<NGO />} />
+          <Route exact path='/foodbank' element={<FoodBank />} />
           
         </Routes>
       </div>
