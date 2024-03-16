@@ -3,6 +3,7 @@
 .Navbar {
   width: 100%;
   color: #fdf0d5;
+  position: relative;
 }
 
 .NavContainer {
@@ -36,21 +37,49 @@
 .ElemContainer {
   display: flex;
 }
-
 .NavLink {
+  margin: 10px 0;
+}
+.NavLink1 {
+  margin: 0px 0;
+}
+.linked {
+  margin: 0 10px;
+  padding: 10px;
+  border-radius: 5px;
   font-size: 22px;
   color: #fdf0d5;
-  margin: 0 10px;
-  padding: 5px;
-  border-radius: 5px;
+  text-decoration: none;
   cursor: pointer;
   transition: all 0.5s ease; /* Smooth transition for color change */
 }
 
-.NavLink:hover {
+.linked:hover {
   color: #c1121f; /* Change color on hover */
-  background-color: #fdf0d5 ;
-  transform: scale(1.15); /* Scale up on hover */
+  background-color: #fdf0d5;
+   transform: ease 0.5s scale(1.0);
+}
+
+/* Dropdown menu */
+.DropdownMenu {
+  position: absolute;
+  top: calc(100% + 10px); /* Position the dropdown below the Navbar */
+  left: auto  ;
+  background-color: #780000;
+  padding: 10px;
+  margin-top: 0;
+  color: #fdf0d5;
+}
+
+.DropdownMenu a {
+  color: #fdf0d5;
+  text-decoration: none;
+  font-size: 18px;
+  
+}
+
+.DropdownMenu a:hover {
+  color: #00bcd4;
 }
 
 /* Media queries for responsiveness */
