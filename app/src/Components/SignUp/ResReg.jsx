@@ -1,42 +1,42 @@
 import React, { useState } from 'react';
 
-function RestaurantForm() {
+function SignupForm() {
   const [formData, setFormData] = useState({
     name: '',
     location: '',
-    foodItems: [{ item: '', quantity: '', expiryDate: '' }],
+    quantity: '',
+    expiry:'',
+
   });
 
-  const handleChange = (e, index) => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
-    const updatedFoodItems = [...formData.foodItems];
-    updatedFoodItems[index] = {
-      ...updatedFoodItems[index],
+    setFormData({
+      ...formData,
       [name]: value,
-    };
-
-    setFormData({
-      ...formData,
-      foodItems: updatedFoodItems,
-    });
-  };
-
-  const handleAddFoodItem = () => {
-    setFormData({
-      ...formData,
-      foodItems: [...formData.foodItems, { item: '', quantity: '', expiryDate: '' }],
     });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
-    // You can also send this data to your backend for further processing
+    console.log(formData); // Debug statement to check the formData object
+
+    // Store name and location in local storage
+    localStorage.setItem('name', formData.name);
+    localStorage.setItem('location', formData.location);
+
+    // Optional: Clear form fields after submission
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      name: '',
+      contactNumber: '',
+      location: '',
+    }));
   };
 
   return (
     <div>
-      <h2>Restaurant Details</h2>
+      <h2>Community</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -45,10 +45,11 @@ function RestaurantForm() {
             id="name"
             name="name"
             value={formData.name}
-            onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+            onChange={handleChange}
             required
           />
         </div>
+        
         <div>
           <label htmlFor="location">Location:</label>
           <input
@@ -56,49 +57,38 @@ function RestaurantForm() {
             id="location"
             name="location"
             value={formData.location}
-            onChange={(e) => setFormData({ ...formData, location: e.target.value })}
+            onChange={handleChange}
             required
           />
         </div>
         <div>
-          <h3>Food Items:</h3>
-          {formData.foodItems.map((foodItem, index) => (
-            <div key={index}>
-              <label htmlFor={`item-${index}`}>Item:</label>
-              <input
-                type="text"
-                id={`item-${index}`}
-                name="item"
-                value={foodItem.item}
-                onChange={(e) => handleChange(e, index)}
-                required
-              />
-              <label htmlFor={`quantity-${index}`}>Quantity:</label>
-              <input
-                type="number"
-                id={`quantity-${index}`}
-                name="quantity"
-                value={foodItem.quantity}
-                onChange={(e) => handleChange(e, index)}
-                required
-              />
-              <label htmlFor={`expiryDate-${index}`}>Expiry Date:</label>
-              <input
-                type="date"
-                id={`expiryDate-${index}`}
-                name="expiryDate"
-                value={foodItem.expiryDate}
-                onChange={(e) => handleChange(e, index)}
-                required
-              />
-            </div>
-          ))}
-          <button type="button" onClick={handleAddFoodItem}>Add Food Item</button>
+          <label htmlFor="contactNumber">Quantity:</label>
+          <input
+            type="text"
+            id="quantity"
+            name="quantity"
+            value={formData.quantity}
+            onChange={handleChange}
+            required
+          />
         </div>
+
+        <div>
+          <label htmlFor="contactNumber">Expiry Date:</label>
+          <input
+            type="date"
+            id="expiry"
+            name="expiry"
+            value={formData.expiry}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
         <button type="submit">Submit</button>
       </form>
     </div>
   );
 }
 
-export default RestaurantForm;
+export default SignupForm;
