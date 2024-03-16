@@ -7,8 +7,6 @@ import Distributors from './Components/Distributors';
 import Navbar from './Components/Navbar/Navbar';
 import Volunteers from './Components/Volunteers';
 import Homepage from './Components/Homepage/Homepage';
-import Maps from './Components/maps';
-import Chatgpt from './Components/chatgpt';
 
 const App = () => {
   return (
@@ -24,13 +22,7 @@ const App = () => {
           <Route path='/volunteers' element={<Volunteers />} />
           <Route path='/distributors' element={<Distributors />} />
           <Route path='/community' element={<Community />} />
-          <Route path='/maps' element={<Maps />} />
         </Routes>
-      </div>
-      <div>
-        <p>MAPS</p>
-        <Maps/>
-        <Chatgpt />
       </div>
     </div>
   );

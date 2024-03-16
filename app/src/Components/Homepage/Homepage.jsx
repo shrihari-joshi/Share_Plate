@@ -1,27 +1,42 @@
 import React, { useEffect, useState } from 'react';
+import Example from '../Example/Example'
+import pic1 from './image1.jpg';
+import pic2 from './image2.jpg';
+import pic3 from './image3.jpg';
 import './Homepage.css';
 
 const Homepage = () => {
+  const images = [pic1, pic2, pic3];
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % 3);
+    }, 2000);
+
+    return () => clearInterval(interval);
+  }, []);
+  // const Texts = [" surplus into sustenance"," waste into welfare","hunger into hope"];
+  // const [currentTextIndex, setCurrentTextIndex] = useState(0);
+
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     setCurrentTextIndex((prevIndex) => (prevIndex + 1) % 3);
+  //   }, 2000);
+
+  //   return () => clearInterval(interval);
+  // }, []);
   return (
     <div className="container">
-      <div class="slider-frame">
-            <div class="slide-images">
-                    <div class="img-container1">
-                    </div>
-                    <div class="img-container2">
-                    </div>
-                    <div class="img-container3">
-                    </div>
-            </div>
-        </div>
       <div className="description">
-        <h2>Site Description</h2>
-        <p>
-          This is a description of your site. You can add any text or HTML
-          content here to describe your site.
-        </p>
+        <h1>Welcome Enthusiasts</h1>
+        <div>Let's Turn <Example/> </div>
       </div>
+        <div class="slider-frame">
+              <img src={images[currentImageIndex]} className='img-container' alt="" />
+      
+        </div>
+
     </div>
   );
 };
