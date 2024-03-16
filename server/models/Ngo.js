@@ -18,6 +18,11 @@ const ngoSchema = new mongoose.Schema({
     enum: ['Small', 'Medium', 'Large'],
     default: 'Medium',
   },
+  isFoodAvailable : {
+    type : Boolean,
+    default : false,
+    required : true
+  }
 });
 
 const NGO = mongoose.model('NGO', ngoSchema);
