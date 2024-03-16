@@ -8,8 +8,7 @@ import Navbar from './Components/Navbar/Navbar';
 import Volunteers from './Components/Volunteers';
 import Homepage from './Components/Homepage/Homepage';
 import Donate from './Donate';
-import NGO from './Components/NGO';
-import FoodBank from './Components/FoodBank';
+import FoodBank from './FoodBank';
 
 const App = () => {
   return (
