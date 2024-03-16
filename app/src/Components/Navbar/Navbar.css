@@ -1,64 +1,75 @@
 /* Navbar.css */
 
 .Navbar {
-    width: 100%;
-  }
-  
+  width: 100%;
+  color: #fdf0d5;
+}
+
+.NavContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #780000;
+  height: 7vh;
+  color: #fdf0d5;
+  padding: 10px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.NavHead {
+  display: flex;
+  align-items: center;
+}
+
+.Logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #fdf0d5;
+  margin-right: 10px;
+}
+
+.Title {
+  font-size: 20px;
+  color: #fdf0d5;
+}
+
+.ElemContainer {
+  display: flex;
+}
+
+.NavLink {
+  font-size: 22px;
+  color: #fdf0d5;
+  margin: 0 10px;
+  padding: 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.5s ease; /* Smooth transition for color change */
+}
+
+.NavLink:hover {
+  color: #c1121f; /* Change color on hover */
+  background-color: #fdf0d5 ;
+  transform: scale(1.15); /* Scale up on hover */
+}
+
+/* Media queries for responsiveness */
+@media screen and (max-width: 768px) {
   .NavContainer {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #ffffff;
-    padding: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    flex-direction: column;
+    padding: 20px;
   }
-  
+
   .NavHead {
-    display: flex;
+    margin-bottom: 20px;
+  }
+
+  .ElemContainer {
+    flex-direction: row;
     align-items: center;
   }
-  
-  .Logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333333;
-    margin-right: 10px;
-  }
-  
-  .Title {
-    font-size: 20px;
-    color: #333333;
-  }
-  
-  .ElemContainer {
-    display: flex;
-  }
-  
+
   .NavLink {
-    font-size: 16px;
-    color: #333333;
-    margin: 0 10px;
-    cursor: pointer;
+    margin: 10px 0;
   }
-  
-  /* Media queries for responsiveness */
-  @media screen and (max-width: 768px) {
-    .NavContainer {
-      flex-direction: column;
-      padding: 20px;
-    }
-  
-    .NavHead {
-      margin-bottom: 20px;
-    }
-  
-    .ElemContainer {
-      flex-direction: column;
-      align-items: center;
-    }
-  
-    .NavLink {
-      margin: 10px 0;
-    }
-  }
-  
+}

@@ -18,6 +18,13 @@ const ngoSchema = new mongoose.Schema({
     enum: ['Small', 'Medium', 'Large'],
     default: 'Medium',
   },
+  isFoodAvailable : {
+    type : Boolean,
+    default : false
+  },
+  volunteer : {
+    type : String
+  }
 });
 
 const NGO = mongoose.model('NGO', ngoSchema);
