@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import './ResReg.css';
+// import './ResReg.css';
 
 function RestaurantForm() {
   const [formData, setFormData] = useState({
@@ -20,7 +20,6 @@ function RestaurantForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('sending data....');
     const data = {
       name: formData.name,
       location: formData.location,

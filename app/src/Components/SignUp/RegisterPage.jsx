@@ -6,7 +6,9 @@ function SignupForm() {
     name: '',
     contactNumber: '',
     location: '',
-    role: 'Distributing', // Default role
+    role: 'Distributing', 
+    expiryDate : ''
+    // Default role
   });
 
   const handleChange = (e) => {
@@ -19,27 +21,27 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form data:', formData); // Add this line for debugging
-    const data = {
-        name: formData.name,
-        contactNumber: formData.contactNumber,
-        role: formData.role
-    }
+    console.log( 'in front end', formData);
     try {
-        const response = await axios.post('http://localhost:3500/register-volunteer', 
-            data);
-        console.log('Response:', response.data); // Log the response for debugging
-        console.log('Sending data');
+      const response = await axios.post('http://localhost:3500/register-volunteer', {
+        name : formData.name,
+        contactNumber : formData.contactNumber,
+        role : formData.role,
+        expiryDate : formData.expiryDate
+      });
+      console.log('Response:', response.data); // Log the response for debugging
+      console.log('Sending data');
     } catch (error) {
-        console.error('Error submitting form:', error); // Log any errors for debugging
+      console.error('Error submitting form:', error); // Log any errors for debugging
     }
   };
+  
   
 
   return (
     <div>
       <h2>NGO Volunteer Signup</h2>
-      <form onSubmit={(e) => handleSubmit(e)}>
+      <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
           <input
@@ -47,7 +49,7 @@ function SignupForm() {
             id="name"
             name="name"
             value={formData.name}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             required
           />
         </div>
@@ -58,7 +60,7 @@ function SignupForm() {
             id="contactNumber"
             name="contactNumber"
             value={formData.contactNumber}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
             required
           />
         </div>
@@ -69,7 +71,7 @@ function SignupForm() {
             id="location"
             name="location"
             value={formData.location}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           />
         </div>
         <div>
@@ -78,14 +80,14 @@ function SignupForm() {
             id="role"
             name="role"
             value={formData.role}
-            onChange={(e) => handleChange(e)}
+            onChange={handleChange}
           >
             <option value="Sorting">Sorting</option>
             <option value="Packing">Packing</option>
             <option value="Distribution">Distribution</option>
           </select>
         </div>
-        <button type="submit">Submit</button>
+        <button type="submit" >Submit</button>
       </form>
     </div>
   );

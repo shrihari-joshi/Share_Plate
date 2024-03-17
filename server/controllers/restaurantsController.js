@@ -34,7 +34,7 @@ exports.registerRestaurant = async (req, res) => {
     try {
         const { name, location, quantity, expiryDate } = req.body;
         const exRestaurant = await Restaurant.findOne({ name: name, location: location });
-
+        console.log('in regi controller');
         if (exRestaurant) {
             // If the restaurant already exists, update its quantity
             exRestaurant.quantity = foodItem;

@@ -9,6 +9,7 @@ import Volunteers from './Components/Volunteer/Volunteer';
 import Homepage from './Components/Homepage/Homepage';
 import Donate from './Donate/Donate';
 import Maps from './Components/SignUp/maps';
+import RegisterForm from './Components/SignUp/Registerform'
 
 
 const App = () => {
@@ -29,7 +30,7 @@ const App = () => {
           <Route exact path='/distributors' element={<Distributors />} />
           <Route exact path='/community' element={<Community />} />
           <Route exact path='/donate' element={<Donate />} />
-          
+          <Route exact path= '/register' element={<RegisterForm/>} />
         </Routes>
       </div>
      
