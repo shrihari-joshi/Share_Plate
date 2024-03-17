@@ -6,19 +6,11 @@ const volunteerSchema = new Schema({
         type: String,
         required: true
     },
-    address: {
-        type: String,
-        required: true
-    },
-    age: {
-        type: Number,
-        required: true
-    },
     contactNumber: {
         type: String,
         required: true
     },
-    domain : {
+    role : {
         type : String,
         enum : ['Sorting', 'Packing', 'Distributing'],
         default : 'Distributing'

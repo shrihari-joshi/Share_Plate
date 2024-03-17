@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 import './ResReg.css'
 function RestaurantForm() {
   const [formData, setFormData] = useState({
@@ -28,11 +29,7 @@ function RestaurantForm() {
     });
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(formData);
-    // You can also send this data to your backend for further processing
-  };
+
 
   return (
     <div>
