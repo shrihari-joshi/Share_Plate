@@ -1,5 +1,8 @@
 
 import React, { useState, useEffect } from 'react';
+import { FaRegAddressBook } from "react-icons/fa";
+import { FaPhoneAlt } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 import axios from 'axios';
 import './Contactus.css'
 
@@ -21,35 +24,22 @@ const Contactus = () => {
 
                         <div class="contact-info">
                             <div class="contact-info-item">
-
-                                <div class="contact-info-icon">
-                                    <i class="fas fa-home"></i>
-                                </div>
-
                                 <div class="contact-info-content">
-                                    <h4>Address</h4>
+                                    <h4><FaRegAddressBook />Address</h4>
                                     <p>B-803 Embark Heights,<br /> Bandra, Mumbai <br />450001</p>
                                 </div>
                             </div>
 
                             <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i class="fas fa-phone"></i>
-                                </div>
-
                                 <div class="contact-info-content">
-                                    <h4>Phone</h4>
+                                    <h4><FaPhoneAlt />Phone</h4>
                                     <p>571-457-2321</p>
                                 </div>
                             </div>
 
                             <div class="contact-info-item">
-                                <div class="contact-info-icon">
-                                    <i class="fas fa-envelope"></i>
-                                </div>
-
                                 <div class="contact-info-content">
-                                    <h4>Email</h4>
+                                    <h4><MdEmail />Email</h4>
                                     <p>shareplates@contact.org.in</p>
                                 </div>
                             </div>
