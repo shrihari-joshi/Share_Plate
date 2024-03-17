@@ -6,7 +6,7 @@ const Volunteer = () => {
     name: '',
     email: '',
     location: '',
-    role: '', // State for selected role
+    role: '', // Initialize role state
     contactNumber: '',
   });
 
@@ -20,10 +20,16 @@ const Volunteer = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // You can perform form validation here before submitting
-    // For now, we'll just log the data to the console
+    // Perform form submission actions
     console.log(formData);
-    // You can also send this data to your backend for further processing
+    // Reset form data
+    setFormData({
+      name: '',
+      email: '',
+      location: '',
+      role: '',
+      contactNumber: '',
+    });
   };
 
   return (
@@ -33,21 +39,21 @@ const Volunteer = () => {
           <div className='details'>
             <h2>Want to join the fight against hunger?</h2>
             <p>
-              Be a part of our fight against hunger. If you’re an individual, organization, institution, donor, the press, or an artist who would like to join us or partner with us, please reach out here or write to us at:
+              Join us in our mission to combat food waste and hunger by donating your surplus food through our innovative web application. With just a few clicks, you can make a significant impact on the lives of those in need while also reducing environmental impact. Your contribution will ensure that perfectly good food reaches hungry mouths instead of ending up in landfills. Together, let's create a brighter future where everyone has access to nutritious meals. Donate today and be a part of the solution!
             </p>
           </div>
         </div>
         <div className='node'>
-          <form className="form" onSubmit={handleSubmit}>
+          <form className='form' onSubmit={(e) => handleSubmit(e)}>
             <h2>Join Us</h2>
             <label>
               <input
-                className="input"
-                type="text"
-                placeholder="Name"
-                name="name"
+                className='input'
+                type='text'
+                placeholder='Name'
+                name='name'
                 value={formData.name}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <span>Name</span>
@@ -55,12 +61,12 @@ const Volunteer = () => {
 
             <label>
               <input
-                className="input"
-                type="email"
-                placeholder="Email"
-                name="email"
+                className='input'
+                type='email'
+                placeholder='Email'
+                name='email'
                 value={formData.email}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <span>Email</span>
@@ -68,12 +74,12 @@ const Volunteer = () => {
 
             <label>
               <input
-                className="input"
-                type="text"
-                placeholder="Location"
-                name="location"
+                className='input'
+                type='text'
+                placeholder='Location'
+                name='location'
                 value={formData.location}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <span>Location</span>
@@ -81,35 +87,37 @@ const Volunteer = () => {
 
             <label>
               <select
-                className="input"
-                placeholder="Role"
-                /*name="role"*/
+                className='input'
+                placeholder='Role'
+                name='role'
                 value={formData.role}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               >
-                <option value="">select</option>
-                <option value="Sorting">Sorting</option>
-                <option value="Packing">Packing</option>
-                <option value="Distribution">Distribution</option>
+                <option value=''>Select Role</option>
+                <option value='Sorting'>Sorting</option>
+                <option value='Packing'>Packing</option>
+                <option value='Distribution'>Distribution</option>
               </select>
               <span>Role</span>
             </label>
 
             <label>
               <input
-                className="input"
-                type="text"
-                placeholder="Contact Number"
-                name="contactNumber"
+                className='input'
+                type='text'
+                placeholder='Contact Number'
+                name='contactNumber'
                 value={formData.contactNumber}
-                onChange={handleChange}
+                onChange={(e) => handleChange(e)}
                 required
               />
               <span>Contact Number</span>
             </label>
 
-            <button type="submit" className="submit">Submit</button>
+            <button className='submit' type='submit'>
+              Submit
+            </button>
           </form>
         </div>
       </div>

@@ -1,5 +1,5 @@
 const Restaurant = require('../models/Restaurant');
-const Ngo = require('../models/Ngo')
+const Ngo = require('../models/Ngo');
 
 exports.getRestaurants = async (req, res) => {
     try {
@@ -16,28 +16,28 @@ exports.getRestaurants = async (req, res) => {
 
 exports.getRestaurant = async (req, res) => {
     try {
-        const restaurantName = req.body.restaurantName
-        const restaurant = await Restaurant.findOne({ name : restaurantName})
+        const restaurantName = req.body.restaurantName;
+        const restaurant = await Restaurant.findOne({ name: restaurantName });
 
         if (!restaurant) {
-            return res.json({ message : 'restaurant not found'})
+            return res.json({ message: 'Restaurant not found' });
         }
-        console.log('restaurant fetched');
-        res.status(200).send(restaurant)
+        console.log('Restaurant fetched');
+        res.status(200).send(restaurant);
+    } catch (error) {
+        console.error('Error fetching restaurant:', error);
+        res.status(500).json({ message: 'Internal server error' });
     }
-    catch(error) {
-        throw new Error(error)
-    }
-}
+};
 
 exports.registerRestaurant = async (req, res) => {
     try {
-        const { name, location, foodItems } = req.body;
+        const { name, location, foodItem } = req.body;
         const exRestaurant = await Restaurant.findOne({ name: name, location: location });
 
         if (exRestaurant) {
-            // If the restaurant already exists, update its foodItems
-            exRestaurant.foodItems.push(...foodItems);
+            // If the restaurant already exists, update its foodItem
+            exRestaurant.foodItem = foodItem;
             await exRestaurant.save();
             console.log('Restaurant updated successfully');
             res.status(200).json({ message: 'Restaurant updated successfully', restaurant: exRestaurant });
@@ -46,7 +46,7 @@ exports.registerRestaurant = async (req, res) => {
             const newRestaurant = await Restaurant.create({
                 name: name,
                 location: location,
-                foodItems: foodItems,
+                foodItem: foodItem,
             });
             console.log('Restaurant registered successfully');
             res.status(201).json({ message: 'Restaurant registered successfully', restaurant: newRestaurant });
@@ -57,25 +57,24 @@ exports.registerRestaurant = async (req, res) => {
     }
 };
 
-
 exports.addFood = async (req, res) => {
-    const { restaurantName, location, foodItem, quantity, expiryDate } = req.body;
+    const { name, location, foodItem, quantity, expiryDate } = req.body;
 
     try {
-        let restaurant = await Restaurant.findOne({ name: restaurantName });
+        let restaurant = await Restaurant.findOne({ name: name });
         if (!restaurant) {
             restaurant = new Restaurant({
-                name: restaurantName,
+                name: name,
                 location: location,
-                foodItems: [{ item: foodItem, quantity: quantity, expiryDate: new Date(expiryDate) }],
+                foodItem: foodItem,
+                quantity: quantity,
+                expiryDate: new Date(expiryDate)
             });
         } else {
-            const existingFoodItem = restaurant.foodItems.find(item => item.item === foodItem);
-            if (existingFoodItem) {
-                existingFoodItem.quantity += quantity;
-            } else {
-                restaurant.foodItems.push({ item: foodItem, expiryDate: new Date(expiryDate), quantity: quantity });
-            }
+            // If the restaurant already exists, update its foodItem details
+            restaurant.foodItems.foodItem = foodItem;
+            restaurant.foodItems.quantity = quantity;
+            restaurant.foodItems.expiryDate = new Date(expiryDate);
         }
 
         await restaurant.save();
@@ -87,8 +86,8 @@ exports.addFood = async (req, res) => {
     }
 };
 
-
 exports.donateFood = async (req, res) => {
+    const { restaurantName, ngoName } = req.body;
     try {
         const restaurant = await Restaurant.findOne({ name: restaurantName });
         const ngo = await Ngo.findOne({ name: ngoName });
@@ -97,16 +96,15 @@ exports.donateFood = async (req, res) => {
             return res.status(400).json({ message: 'All fields are mandatory' });
         }
 
-        restaurant.foodItems.forEach(item => {
-            item.quantity = 0;
-        });
+        restaur
+        ant.foodItems.quantity = 0; // Set the quantity to 0 for donation
 
         // Save the updated restaurant and respond with success message
-        console.log('food donated successfully')
+        console.log('Food donated successfully');
         await restaurant.save();
         res.status(200).json({ message: 'Food donated successfully' });
     } catch (error) {
         console.error('Error donating food:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
-}
+};

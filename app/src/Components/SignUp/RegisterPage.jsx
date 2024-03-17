@@ -5,7 +5,7 @@ function SignupForm() {
     name: '',
     contactNumber: '',
     location: '',
-    role: 'Sorting', // Default role
+    role: 'Distributing', // Default role
   });
 
   const handleChange = (e) => {
@@ -16,8 +16,15 @@ function SignupForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = await axios.post('http://localhost:3500/register-volunteer', {
+      name : formData.name,
+      contactNumber : formData.contactNumber,
+      role : formData.role
+    })
+    console.log('sending data');
+
     // You can perform form validation here before submitting
     // For now, we'll just log the data to the console
     console.log(formData);
@@ -27,7 +34,7 @@ function SignupForm() {
   return (
     <div>
       <h2>NGO Volunteer Signup</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label htmlFor="name">Name:</label>
           <input
@@ -35,7 +42,7 @@ function SignupForm() {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             required
           />
         </div>
@@ -46,7 +53,7 @@ function SignupForm() {
             id="contactNumber"
             name="contactNumber"
             value={formData.contactNumber}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             required
           />
         </div>
@@ -57,8 +64,7 @@ function SignupForm() {
             id="location"
             name="location"
             value={formData.location}
-            onChange={handleChange}
-            required
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
@@ -67,7 +73,7 @@ function SignupForm() {
             id="role"
             name="role"
             value={formData.role}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           >
             <option value="Sorting">Sorting</option>
             <option value="Packing">Packing</option>

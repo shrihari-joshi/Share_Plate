@@ -11,7 +11,7 @@ const restaurantSchema = new Schema({
         type: String,
         required: true
     },
-    foodItems: [{
+    foodItems: {
         item: {
             type: String,
             required: true
@@ -24,7 +24,7 @@ const restaurantSchema = new Schema({
             type : Date,
             required : true
         }
-    }]
+    }
 });
 
 // Create a model based on the schema

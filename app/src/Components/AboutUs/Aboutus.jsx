@@ -21,27 +21,24 @@ const Aboutus = () => {
       <div className='bee'>
         <div className='hello'>
           <h2>About US</h2>
-          <h3>
+          <h3 className='headers'>
             Connecting Communities Through Food
           </h3>
-          <p>Welcome to [Website Name], where we believe in the power of food to unite communities and make a meaningful difference in the lives of those in need.
+          <p className='content'>Welcome to SharePlates, where we believe in the power of food to unite communities and make a meaningful difference in the lives of those in need.
 
-            Our platform serves as a bridge between NGOs and restaurants, fostering a symbiotic relationship where surplus food finds its way to those who need it the most. We understand that food wastage is not just an environmental concern but a social injustice, which is why we are committed to facilitating the redistribution of excess food to the underserved.</p>
-          <h3>
+            Our platform serves as a bridge between NGOs and supply communities, fostering a symbiotic relationship where surplus food finds its way to those who need it the most. We are committed to facilitating the redistribution of excess food to the underserved.</p>
+          <h3 className='headers'>
             Our Mission
           </h3>
-          <p>
-            At [Website Name], our mission is simple yet impactful: to alleviate hunger and reduce food waste by connecting generous restaurants with local NGOs dedicated to serving the community. We strive to create a seamless process where surplus food is redirected from restaurants to NGOs, and finally into the hands of individuals and families who are facing food insecurity.
+          <p className='content'>
+            At SharePlates, our mission is simple yet impactful: to alleviate hunger and reduce food waste by connecting generous restaurants with local NGOs dedicated to serving the community. We strive to create a seamless process where surplus food is redirected from restaurants to NGOs, and finally into the hands of individuals and families who are facing food insecurity.
           </p>
-          <h3>How It Works</h3>
-          <p>
-            NGOs and restaurants can easily connect on our platform, creating a network of support that transcends geographical boundaries. Restaurants with excess food can post their available surplus on our website, specifying the type and quantity of food ready for donation.
+          <h3 className='headers'>How It Works</h3>
+          <p className='content'>
+          Easily connect NGOs and restaurants on our platform. Restaurants post surplus food details, NGOs receive real-time notifications, ensuring quick and efficient distribution to those in need.</p>
 
-            NGOs in the vicinity receive real-time notifications about available food items and can claim them based on their requirements. This streamlined approach ensures that surplus food reaches those in need quickly and efficiently.</p>
-          <h3>The Heart of Our Operation: Our Volunteers</h3>
-          <p>Central to our operation are our dedicated volunteers, the unsung heroes who make it all possible. These passionate individuals step up to collect surplus food from partner NGOs and deliver it to community centers, shelters, and individuals who rely on this support.
-
-            Their commitment and enthusiasm drive the core of our mission, creating a ripple effect of compassion and solidarity within the communities we serve.</p>
+          <h3 className='headers'>The Heart of Our Operation: Volunteers</h3>
+          <p className='content'>"Our dedicated volunteers, the unsung heroes, collect surplus food and deliver it to those in need. Their commitment and enthusiasm drive our mission forward, creating a ripple effect of compassion in our communities."</p>
          </div>
 
       </div>
