@@ -5,6 +5,7 @@ function SignupForm() {
     name: '',
     contactNumber: '',
     location: '',
+    role: 'Sorting', // Default role
   });
 
   const handleChange = (e) => {
@@ -17,24 +18,15 @@ function SignupForm() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData); // Debug statement to check the formData object
-
-    // Store name and location in local storage
-    localStorage.setItem('name', formData.name);
-    localStorage.setItem('location', formData.location);
-
-    // Optional: Clear form fields after submission
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      name: '',
-      contactNumber: '',
-      location: '',
-    }));
+    // You can perform form validation here before submitting
+    // For now, we'll just log the data to the console
+    console.log(formData);
+    // You can also send this data to your backend for further processing
   };
 
   return (
     <div>
-      <h2>Details</h2>
+      <h2>NGO Volunteer Signup</h2>
       <form onSubmit={handleSubmit}>
         <div>
           <label htmlFor="name">Name:</label>
@@ -68,6 +60,19 @@ function SignupForm() {
             onChange={handleChange}
             required
           />
+        </div>
+        <div>
+          <label htmlFor="role">Choose Your Role:</label>
+          <select
+            id="role"
+            name="role"
+            value={formData.role}
+            onChange={handleChange}
+          >
+            <option value="Sorting">Sorting</option>
+            <option value="Packing">Packing</option>
+            <option value="Distribution">Distribution</option>
+          </select>
         </div>
         <button type="submit">Submit</button>
       </form>

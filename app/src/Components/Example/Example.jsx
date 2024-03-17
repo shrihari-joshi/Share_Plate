@@ -4,7 +4,7 @@ const Example= () => {
   return (
     <TypeAnimation
       sequence={[
-        "surplus into sustenance",
+        "surplus into sustainance",
         1000,
         "waste into welfare",
         1000,
