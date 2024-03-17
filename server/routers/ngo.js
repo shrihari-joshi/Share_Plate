@@ -6,4 +6,5 @@ router.get('/get-all-community', ngoController.getAllNGOs)
 router.post('/register-community', ngoController.registerNGO)
 router.post('/give-rating', ngoController.giveRatings)
 
+
 module.exports = router

@@ -23,6 +23,7 @@ function SignupForm() {
       contactNumber : formData.contactNumber,
       role : formData.role
     })
+    console.log('sending data');
 
     // You can perform form validation here before submitting
     // For now, we'll just log the data to the console
