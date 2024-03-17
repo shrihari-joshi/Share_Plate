@@ -13,7 +13,6 @@ const LoginForm = ({setFaculties}) => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        // Handle form submission logic here
         try {
             const response = await axios.post('http://localhost:3500/login', {
                 teamName,
