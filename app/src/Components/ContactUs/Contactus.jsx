@@ -5,7 +5,7 @@ import './Contactus.css'
 const Contactus = () => {
 
     return (
-        <div>
+        <div className='Baba'>
             <section>
 
                 <div class="section-header">
@@ -55,7 +55,7 @@ const Contactus = () => {
 
                         <div class="contact-form">
                             <form action="" id="contact-form">
-                                <h2>Send Message</h2>
+                                <h2>Help Us Get Better</h2>
                                 <div class="input-box">
                                     <input type="text" required="true" name=""/>
                                         <span>Full Name</span>
@@ -68,7 +68,7 @@ const Contactus = () => {
 
                                 <div class="input-box">
                                     <textarea required="true" name=""></textarea>
-                                    <span>Type your Message...</span>
+                                    <span>Share Your Experience...</span>
                                 </div>
 
                                 <div class="input-box">

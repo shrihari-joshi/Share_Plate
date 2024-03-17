@@ -6,6 +6,7 @@ const Maps = () => {
 
     useEffect(() => {
         const fetchData = async () => {
+            
             const options = {
                 method: 'GET',
                 url: 'https://map-places.p.rapidapi.com/nearbysearch/json',
