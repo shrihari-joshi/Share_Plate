@@ -17,6 +17,7 @@ exports.registerVolunteer = async (req, res) => {
         });
 
         await newVolunteer.save();
+        console.log('Volunteer registered');
         res.status(201).json({ message: 'Volunteer registered successfully', volunteer: newVolunteer });
     } catch (error) {
         console.error('Error registering volunteer:', error);
@@ -24,8 +25,6 @@ exports.registerVolunteer = async (req, res) => {
     }
 };
 
-
-// Controller function to handle volunteer acceptance/rejection of NGO request
 exports.acceptRequestFromNgo = async (req, res) => {
     const { name, ngoName } = req.body;
 
@@ -35,17 +34,15 @@ exports.acceptRequestFromNgo = async (req, res) => {
             return res.status(404).json({ message: 'Volunteer not found' });
         }
 
-        const volunteer_working_for = await Volunteer.working_for;
-        if (!volunteer_working_for){
-            // will aceept their request
-            Volunteer.working_for = ngoName
-            await Volunteer.save()
-            console.log('Volunteer : food is handed over to me');
+        if (!volunteer.working_for) {
+            // Will accept their request
+            volunteer.working_for = ngoName;
+            await volunteer.save();
+            console.log('Volunteer: Food is handed over to me');
+        } else {
+            console.log('Volunteer: Cannot accept request as already working with another NGO');
         }
-        else {
-            console.log('Volunteer : Cannot accept request as already working with another NGO');
-        }
-        
+
         res.status(200).json({ message: 'Request updated', volunteer });
     } catch (error) {
         console.error('Error accepting/rejecting request from NGO:', error);
@@ -54,23 +51,26 @@ exports.acceptRequestFromNgo = async (req, res) => {
 };
 
 exports.freeToWork = async (req, res) => {
-    const name = req.body.name
+    const { name } = req.body;
     try {
-        const volunteer = await Volunteer.findOne({ name : name})
-        volunteer.working_for = ''
-        Volunteer.save()
+        const volunteer = await Volunteer.findOne({ name });
+        volunteer.working_for = '';
+        await volunteer.save();
         console.log(`${volunteer.name} is now free to work`);
+        res.status(200).json({ message: 'Volunteer updated successfully' });
     } catch (err) {
+        console.error('Error freeing volunteer to work:', err);
         res.status(500).json({ message: 'Internal server error' });
     }
-}
+};
 
 exports.getNgo = async (req, res) => {
-    const volName = req.body.name
+    const { name } = req.body;
     try {
-        const volunteer = await Volunteer.findOne({ name : volName})
-        return res.status(201).json(volunteer.working_for)
-    } catch (err){
-        console.log(err);
+        const volunteer = await Volunteer.findOne({ name });
+        res.status(200).json(volunteer.working_for || 'Not working with any NGO');
+    } catch (err) {
+        console.error('Error getting NGO for volunteer:', err);
+        res.status(500).json({ message: 'Internal server error' });
     }
-}
+};

@@ -11,19 +11,12 @@ const restaurantSchema = new Schema({
         type: String,
         required: true
     },
-    foodItems: {
-        item: {
-            type: String,
-            required: true
-        },
-        quantity: {
-            type: Number,
-            required: true
-        },
-        expiryDate: {
-            type : Date,
-            required : true
-        }
+    quantity : {
+        type : Number,
+        required : true
+    },
+    expiryDate : {
+        type : Date
     }
 });
 

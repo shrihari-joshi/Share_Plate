@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import axios from 'axios';
 
 function SignupForm() {
   const [formData, setFormData] = useState({
@@ -18,18 +19,22 @@ function SignupForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const response = await axios.post('http://localhost:3500/register-volunteer', {
-      name : formData.name,
-      contactNumber : formData.contactNumber,
-      role : formData.role
-    })
-    console.log('sending data');
-
-    // You can perform form validation here before submitting
-    // For now, we'll just log the data to the console
-    console.log(formData);
-    // You can also send this data to your backend for further processing
+    console.log('Form data:', formData); // Add this line for debugging
+    const data = {
+        name: formData.name,
+        contactNumber: formData.contactNumber,
+        role: formData.role
+    }
+    try {
+        const response = await axios.post('http://localhost:3500/register-volunteer', 
+            data);
+        console.log('Response:', response.data); // Log the response for debugging
+        console.log('Sending data');
+    } catch (error) {
+        console.error('Error submitting form:', error); // Log any errors for debugging
+    }
   };
+  
 
   return (
     <div>

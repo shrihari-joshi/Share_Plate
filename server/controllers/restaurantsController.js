@@ -32,12 +32,12 @@ exports.getRestaurant = async (req, res) => {
 
 exports.registerRestaurant = async (req, res) => {
     try {
-        const { name, location, foodItem } = req.body;
+        const { name, location, quantity, expiryDate } = req.body;
         const exRestaurant = await Restaurant.findOne({ name: name, location: location });
 
         if (exRestaurant) {
-            // If the restaurant already exists, update its foodItem
-            exRestaurant.foodItem = foodItem;
+            // If the restaurant already exists, update its quantity
+            exRestaurant.quantity = foodItem;
             await exRestaurant.save();
             console.log('Restaurant updated successfully');
             res.status(200).json({ message: 'Restaurant updated successfully', restaurant: exRestaurant });
@@ -46,7 +46,8 @@ exports.registerRestaurant = async (req, res) => {
             const newRestaurant = await Restaurant.create({
                 name: name,
                 location: location,
-                foodItem: foodItem,
+                quantity: quantity,
+                expiryDate : expiryDate
             });
             console.log('Restaurant registered successfully');
             res.status(201).json({ message: 'Restaurant registered successfully', restaurant: newRestaurant });
@@ -58,7 +59,7 @@ exports.registerRestaurant = async (req, res) => {
 };
 
 exports.addFood = async (req, res) => {
-    const { name, location, foodItem, quantity, expiryDate } = req.body;
+    const { name, location, quantity,  expiryDate } = req.body;
 
     try {
         let restaurant = await Restaurant.findOne({ name: name });
@@ -71,10 +72,9 @@ exports.addFood = async (req, res) => {
                 expiryDate: new Date(expiryDate)
             });
         } else {
-            // If the restaurant already exists, update its foodItem details
-            restaurant.foodItems.foodItem = foodItem;
-            restaurant.foodItems.quantity = quantity;
-            restaurant.foodItems.expiryDate = new Date(expiryDate);
+            // If the restaurant already exists, update its foodItem de
+            restaurant.quantity = quantity;
+            restaurant.expiryDate = new Date(expiryDate);
         }
 
         await restaurant.save();
@@ -96,8 +96,7 @@ exports.donateFood = async (req, res) => {
             return res.status(400).json({ message: 'All fields are mandatory' });
         }
 
-        restaur
-        ant.foodItems.quantity = 0; // Set the quantity to 0 for donation
+        restaurant.quantity = 0 // Set the quantity to 0 for donation
 
         // Save the updated restaurant and respond with success message
         console.log('Food donated successfully');
