@@ -1,4 +1,5 @@
 const NGO = require('../models/Ngo');
+const Restaurant = require('../models/Restaurant');
 
 // Controller function to get all NGOs
 exports.getAllNGOs = async (req, res) => {
@@ -16,7 +17,7 @@ exports.getAllNGOs = async (req, res) => {
 
 // Controller function to register a new NGO
 exports.registerNGO = async (req, res) => {
-    const { name, location, contactNum, scale, isFoodAvailable } = req.body;
+    const { name, contactNum, scale } = req.body;
 
     try {
         const existingNGO = await NGO.findOne({ name });
@@ -26,7 +27,6 @@ exports.registerNGO = async (req, res) => {
 
         const newNGO = new NGO({
             name,
-            location,
             contactNum,
             scale
         });
@@ -39,3 +39,36 @@ exports.registerNGO = async (req, res) => {
     }
 };
 
+exports.giveRatings = async (req, res) => {
+    try{
+        const { restName, rating } = req.body
+        const restaurant = await Restaurant.findOne({name : restName })
+        if (!restaurant) {
+            return res.status(400).json({ message : ''})
+        }
+        restaurant.rating.push_back(rating)
+        await Restaurant.save()
+        return res.status(201).json({ message : 'rating saved'})
+    } catch(err) {
+        console.log(err);
+    }
+}
+
+exports.getRating = async (req, res) => {
+    try {
+        const name = req.body.name
+        const restaurant = await Restaurant.findOne({name : restName})
+        if (!restaurant) {
+            return res.status(400).json({ message : ''})
+        }
+        let sum = 0
+        restaurant.ratings.forEach((index) => {
+            sum += restaurant.ratings[index]
+        })
+        const rating = sum / restaurant.ratings.length
+        return res.status(201).json({ 'rating' : rating })
+    }
+    catch (err){
+        console.log(err);
+    }
+}

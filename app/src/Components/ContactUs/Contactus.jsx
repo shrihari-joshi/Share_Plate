@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './Contactus.css'
+
 const Contactus = () => {
 
     return (
@@ -20,13 +21,14 @@ const Contactus = () => {
 
                         <div class="contact-info">
                             <div class="contact-info-item">
+
                                 <div class="contact-info-icon">
                                     <i class="fas fa-home"></i>
                                 </div>
 
                                 <div class="contact-info-content">
                                     <h4>Address</h4>
-                                    <p>4671 Sugar Camp Road,<br /> Owatonna, Minnesota, <br />55060</p>
+                                    <p>B-803 Embark Heights,<br /> Bandra, Mumbai <br />450001</p>
                                 </div>
                             </div>
 
@@ -48,7 +50,7 @@ const Contactus = () => {
 
                                 <div class="contact-info-content">
                                     <h4>Email</h4>
-                                    <p>ntamerrwael@mfano.ga</p>
+                                    <p>shareplates@contact.org.in</p>
                                 </div>
                             </div>
                         </div>
@@ -68,7 +70,7 @@ const Contactus = () => {
 
                                 <div class="input-box">
                                     <textarea required="true" name=""></textarea>
-                                    <span>Share Your Experience...</span>
+                                    <span>Share Your Experience</span>
                                 </div>
 
                                 <div class="input-box">
