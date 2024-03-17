@@ -42,7 +42,7 @@ function SignupForm() {
             id="name"
             name="name"
             value={formData.name}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             required
           />
         </div>
@@ -53,7 +53,7 @@ function SignupForm() {
             id="contactNumber"
             name="contactNumber"
             value={formData.contactNumber}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
             required
           />
         </div>
@@ -64,8 +64,7 @@ function SignupForm() {
             id="location"
             name="location"
             value={formData.location}
-            onChange={handleChange}
-            required
+            onChange={(e) => handleChange(e)}
           />
         </div>
         <div>
@@ -74,7 +73,7 @@ function SignupForm() {
             id="role"
             name="role"
             value={formData.role}
-            onChange={handleChange}
+            onChange={(e) => handleChange(e)}
           >
             <option value="Sorting">Sorting</option>
             <option value="Packing">Packing</option>
