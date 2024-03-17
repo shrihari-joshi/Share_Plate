@@ -12,7 +12,7 @@ const Contactus = () => {
                 <div class="section-header">
                     <div class="Acontainer">
                         <h2>Contact Us</h2>
-                        <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+                        <p style={{fontSize:'1.4rem'}}>Connect with Us: Reach out to our dedicated team for any inquiries, suggestions, or collaborations. We're here to listen and assist you in any way we can. Let's work together to make a positive impact on our community and beyond.</p>
                     </div>
                 </div>
 
