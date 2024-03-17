@@ -8,8 +8,12 @@ import Navbar from './Components/Navbar/Navbar';
 import Volunteers from './Components/Volunteers';
 import Homepage from './Components/Homepage/Homepage';
 import Donate from './Donate';
+import Maps from './Components/SignUp/maps';
+
 
 const App = () => {
+
+
   return (
     <div>
       <div>
@@ -28,6 +32,7 @@ const App = () => {
           
         </Routes>
       </div>
+     
     </div>
   );
 };
