@@ -1,10 +1,15 @@
 import React from 'react'
-import RegisterPage from '../SignUp/RegisterPage'
+import ResReg from './ResReg'
+import pic1 from './image.png'
 const Community = () => {
   return (
     <div>
-
+    <div class="main"></div>
+    <div class="main">
+      <ResReg/>
     </div>
+    </div>
+    
   )
 }
 

@@ -1,3 +1,6 @@
+*{
+
+}
 .ImgDiv {
     width: 47vw;
     height: 85vh;
@@ -45,7 +48,6 @@
 
 .hello h2 {
     color: #090909;
-    font-family: 'Raleway', sans-serif;
     font-size: 42px;
     font-weight: 800;
     line-height: 52px;
@@ -56,4 +58,10 @@
 
 .hello p {
     text-align: justify;
+}
+.content{
+    font-size: 17px;
+}
+.headers{
+    font-size: 20px;
 }
