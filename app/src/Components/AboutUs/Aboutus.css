@@ -1,0 +1,59 @@
+.ImgDiv {
+    width: 47vw;
+    height: 85vh;
+    border-radius: 2vw;
+    overflow: hidden;
+    margin: 2.7vh 3vh;
+}
+
+.sideImage {
+    width: 47vw;
+    height: 85vh;
+    object-fit: cover;
+}
+
+.Main {
+    display: flex;
+    display: flex;
+    background-image: url('../image.png');
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+  
+
+}
+
+.bee {
+    height: 100%;
+    width: 50%;
+}
+
+.hello {
+    margin: 2.5vh 2vw;
+    width: 90%;
+    height: 60%;
+    /* background-color: rgba(255, 255, 255, 0.601);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 40px rgba(0, 0, 0, 0.2); */
+  padding: 20px;
+}
+
+.hello h2 {
+    color: #090909;
+    font-family: 'Raleway', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    line-height: 52px;
+    margin: 0 0 24px;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.hello p {
+    text-align: justify;
+}

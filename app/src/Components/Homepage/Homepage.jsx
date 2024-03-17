@@ -1,8 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import Example from '../Example/Example'
-import pic1 from './image1.jpg';
-import pic2 from './image2.jpg';
-import pic3 from './image3.jpg';
 import './Homepage.css';
 
 const Homepage = () => {
@@ -29,10 +26,12 @@ const Homepage = () => {
   return (
     <div className="container">
       <div className="description">
+        <div className='imm'>
         <h1 className='Head'>Welcome Enthusiasts</h1>
         <div className='Faltu'>
           <div className='A'>Let's Turn</div>
           <div><Example /></div>
+          </div>
         </div>
       </div>
 
