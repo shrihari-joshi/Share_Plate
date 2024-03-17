@@ -1,13 +1,15 @@
-.Volu{
+.volunteers{
     display:flex;
     justify-content: center;
     align-items: center;
 
 }
+
 .node{
     height: 100%;
     width: 50%;
     /* border-left:2px solid #201c1c; */
+    padding-right: 50px;
 }
 .form {
     height: 100vh;
@@ -23,23 +25,26 @@
     color:black;
   }
   
- .details{
-    width:30vw;
-    height:50vh;
-    margin-left:15vw;
 
- }
-.details p{
-    font-size: x-large;
+.new{
+  width:30vw;
+    min-height:100vh;
+    margin-left:8vw;
+    text-align: justify;
 }
-.details h2{
-    font-size: xx-large;
+.new h2{
+  margin-top: 5%;
+  margin-left: 6%;
+  font-size: xx-large;
+}
+.new p{
+  font-size: x-large;
+  padding: 20px;
 }
  .form h2{
-    margin-left:13vw;
+    /* margin-left:13vw; */
     font-size: xx-large;
-    font-weight:1500;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight:700;
     margin-bottom: 0%;
 }
 
@@ -118,3 +123,4 @@
       opacity: 0;
     }
   }
+  

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import './Volunteer.css';
 
 const Volunteer = () => {
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,6 +17,7 @@ const Volunteer = () => {
       ...formData,
       [name]: value,
     });
+    
   };
 
   const handleSubmit = (e) => {
@@ -33,15 +35,23 @@ const Volunteer = () => {
   };
 
   return (
-    <div>
-      <div className='Volu'>
-        <div className='node'>
-          <div className='details'>
+    <div className='volunteers'>
+      
+        <div className='node new'>
+          
             <h2>Want to join the fight against hunger?</h2>
             <p>
-              Join us in our mission to combat food waste and hunger by donating your surplus food through our innovative web application. With just a few clicks, you can make a significant impact on the lives of those in need while also reducing environmental impact. Your contribution will ensure that perfectly good food reaches hungry mouths instead of ending up in landfills. Together, let's create a brighter future where everyone has access to nutritious meals. Donate today and be a part of the solution!
-            </p>
-          </div>
+  <ul id='animatedList'>
+    <li>Join us in our mission to combat food waste and hunger.</li>
+    <li>Donate your surplus food through our innovative web application.</li>
+    <li>With just a few clicks, you can make a significant impact on the lives of those in need.</li>
+    <li>Reduce environmental impact by ensuring perfectly good food reaches hungry mouths instead of ending up in landfills.</li>
+    <li>Create a brighter future where everyone has access to nutritious meals.</li>
+    <li>Donate today and be a part of the solution!</li>
+  </ul>
+</p>
+
+          
         </div>
         <div className='node'>
           <form className='form' onSubmit={(e) => handleSubmit(e)}>
@@ -119,7 +129,7 @@ const Volunteer = () => {
               Submit
             </button>
           </form>
-        </div>
+        
       </div>
     </div>
   );

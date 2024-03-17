@@ -1,5 +1,5 @@
 .NGOMain{
-    margin-top: 10vh;
+    margin-top: 40px;
     display: flex;
     /* gap:vh; */
     align-items: center;
@@ -14,7 +14,19 @@
     height: 100vh;
     width: 100vw;
     margin: 0;
-    padding: 0;}
+    padding: 0;
+  }
+  .beta{
+    font-size: 36px;
+    font-weight: 600;
+    padding: 10px;
+    padding-bottom: 20px;
+  }
+  .baccha{
+    padding: 10px;
+    font-size: 22px;
+    padding-bottom: 0px;    
+}
 .NgoContainer {
     width: 25vw;
     height: 50vh;
@@ -29,6 +41,7 @@
     display: grid;
     gap: 15px;
     width:24vw
+
   }
   
   .NgoContainer label {
@@ -40,7 +53,7 @@
     width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
-    border-radius: 5px;
+    border-radius: 10px;
   }
   
   .SubBut {
@@ -48,13 +61,13 @@
     padding: 10px;
     border: none;
     border-radius: 5px;
-    background-color: #641717;
+    background-color: #780000;
     color: rgb(240, 181, 181);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+  
   }
   
   .SubBut:hover {
-    background-color: #863030;
+    background-color: #780000;
+    transform: scale(1.05);
   }
-  

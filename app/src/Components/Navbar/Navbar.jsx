@@ -12,14 +12,14 @@ const Navbar = () => {
       <div className='NavContainer'>
         <div className='NavHead'>
           <div className='Logo'>LOGO</div>
-          <div className='Title'>Company</div>
+          <div className='Title'>SharePlate</div>
         </div>
         <div className='ElemContainer'>
           <div className='NavLink'>
             <Link className='linked' to='/'>Home</Link>
           </div>
           <div className='NavLink'>
-            <Link className='linked' to='/community'>Communities  </Link> 
+            <Link className='linked' to='/community'>Communities</Link> 
           </div>
 
           <div className='NavLink'>

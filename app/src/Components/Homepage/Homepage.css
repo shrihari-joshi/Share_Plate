@@ -23,8 +23,8 @@ body {
 }
 .A{
   /* margin-top: ?vh; */
-  font-size: 6vh;
-  font-weight:700;
+  font-size: 3rem;
+  font-weight:400;
 }
 /* body {
   height: 100%;

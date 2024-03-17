@@ -80,14 +80,14 @@ const MapsWithLocationAndForm = () => {
 
     return (
         <div className='Baap'>
-            <h2>Gratitude in Action: Extending Heartfelt Thanks to Restaurants, Caterers, and Groceries
-                for Nourishing Communities in Need through Our Platform!"</h2>
-            <p>Amidst the challenges faced by many, our platform stands as a beacon of hope and generosity.
+            <p className='beta'>Gratitude in Action</p>
+            <p className='baccha'>Extending Heartfelt Thanks to Restaurants, Caterers, and Grocery stores 
+                for Nourishing Communities in Need through Our Platform!"
+            Amidst the challenges faced by many, our platform stands as a beacon of hope and generosity.
                 We extend our deepest appreciation to the restaurants, caterers, grocery stores and many individuals
                 whose unwavering
                 support and donations have fueled our mission of providing nourishment to those in need.
-                Through their selfless contributions, countless individuals and families have found relief and
-                sustenance during difficult times. Together, we are making a tangible difference in
+                Together, we are making a tangible difference in
                 the lives of many, one meal at a time.</p>
             <div className='NGOMain'>
                 <div className='NgoContainer'>
