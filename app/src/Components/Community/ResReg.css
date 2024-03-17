@@ -1,0 +1,60 @@
+.NGOMain{
+    margin-top: 10vh;
+    display: flex;
+    /* gap:vh; */
+    align-items: center;
+
+}
+.Baap{ 
+    /* background-image: url('./image.png'); */
+    overflow:hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position:center;
+    height: 100vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;}
+.NgoContainer {
+    width: 25vw;
+    height: 50vh;
+    margin: 0 auto;
+    padding: 20px;
+    border-radius: 10px;
+    /* background-color: #f7f7f7; */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .NgoContainer form {
+    display: grid;
+    gap: 15px;
+    width:24vw
+  }
+  
+  .NgoContainer label {
+    font-weight: bold;
+  }
+  
+  .NgoContainer input[type="text"],
+  .NgoContainer input[type="date"] {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .SubBut {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background-color: #641717;
+    color: rgb(240, 181, 181);
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .SubBut:hover {
+    background-color: #863030;
+  }
+  

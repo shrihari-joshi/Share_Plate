@@ -20,8 +20,8 @@ const volunteerSchema = new Schema({
     },
     domain : {
         type : String,
-        enum : ['sorting', 'packing', 'distributing'],
-        default : 'distributing'
+        enum : ['Sorting', 'Packing', 'Distributing'],
+        default : 'Distributing'
     },
     working_for : {
         type : mongoose.Schema.Types.ObjectId,

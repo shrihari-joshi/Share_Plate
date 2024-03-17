@@ -1,35 +1,29 @@
 const Volunteer = require('../models/Volunteer');
 const Ngo = require('../models/Ngo');
 
-exports.sendRequestToVolunteer = async (req, res) => {
-    const { name , ngoName } = req.body;
-
+exports.registerVolunteer = async (req, res) => {
+    const { name, contactNumber, role } = req.body;
     try {
-        const volunteer = await Volunteer.findById(name);
-        if (!volunteer) {
-            return res.status(404).json({ message: 'Volunteer not found' });
+        const existingVolunteer = await Volunteer.findOne({ contactNumber });
+
+        if (existingVolunteer) {
+            return res.status(400).json({ message: 'Volunteer with this contact number already exists' });
         }
 
-        const ngo = await Ngo.findOne({ name: ngoName });
-        if (!ngo) {
-            return res.status(404).json({ message: 'NGO not found' });
-        }
+        const newVolunteer = new Volunteer({
+            name,
+            contactNumber,
+            role,
+        });
 
-        // Check if the volunteer is already working for this NGO
-        if (volunteer.working_for.includes(ngo._id)) {
-            return res.status(400).json({ message: 'Volunteer is already working for this NGO' });
-        }
-
-        // Append the NGO to the volunteer's working_for array
-        volunteer.working_for.push(ngo._id);
-        await volunteer.save();
-
-        res.status(200).json({ message: 'Request sent and volunteer updated', volunteer });
+        await newVolunteer.save();
+        res.status(201).json({ message: 'Volunteer registered successfully', volunteer: newVolunteer });
     } catch (error) {
-        console.error('Error sending request to volunteer:', error);
+        console.error('Error registering volunteer:', error);
         res.status(500).json({ message: 'Internal server error' });
     }
 };
+
 
 // Controller function to handle volunteer acceptance/rejection of NGO request
 exports.acceptRequestFromNgo = async (req, res) => {
@@ -60,8 +54,8 @@ exports.acceptRequestFromNgo = async (req, res) => {
 };
 
 exports.freeToWork = async (req, res) => {
+    const name = req.body.name
     try {
-        const name = req.body.name
         const volunteer = await Volunteer.findOne({ name : name})
         volunteer.working_for = ''
         Volunteer.save()
@@ -71,4 +65,12 @@ exports.freeToWork = async (req, res) => {
     }
 }
 
-exports.getNgos
+exports.getNgo = async (req, res) => {
+    const volName = req.body.name
+    try {
+        const volunteer = await Volunteer.findOne({ name : volName})
+        return res.status(201).json(volunteer.working_for)
+    } catch (err){
+        console.log(err);
+    }
+}
