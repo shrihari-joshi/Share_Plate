@@ -5,7 +5,7 @@ function SignupForm() {
     name: '',
     contactNumber: '',
     location: '',
-    role: 'Sorting', // Default role
+    role: 'Distributing', // Default role
   });
 
   const handleChange = (e) => {
@@ -16,8 +16,14 @@ function SignupForm() {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    const response = await axios.post('http://localhost:3500/register-volunteer', {
+      name : formData.name,
+      contactNumber : formData.contactNumber,
+      role : formData.role
+    })
+
     // You can perform form validation here before submitting
     // For now, we'll just log the data to the console
     console.log(formData);
@@ -27,7 +33,7 @@ function SignupForm() {
   return (
     <div>
       <h2>NGO Volunteer Signup</h2>
-      <form onSubmit={handleSubmit}>
+      <form onSubmit={(e) => handleSubmit(e)}>
         <div>
           <label htmlFor="name">Name:</label>
           <input

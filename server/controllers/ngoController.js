@@ -66,9 +66,39 @@ exports.getRating = async (req, res) => {
             sum += restaurant.ratings[index]
         })
         const rating = sum / restaurant.ratings.length
-        return res.status(201).json({ 'rating' : rating })
+        return res.status(201).json(rating)
     }
     catch (err){
         console.log(err);
     }
 }
+
+exports.sendRequestToVolunteer = async (req, res) => {
+    const { name , ngoName } = req.body;
+
+    try {
+        const volunteer = await Volunteer.findById(name);
+        if (!volunteer) {
+            return res.status(404).json({ message: 'Volunteer not found' });
+        }
+
+        const ngo = await Ngo.findOne({ name: ngoName });
+        if (!ngo) {
+            return res.status(404).json({ message: 'NGO not found' });
+        }
+
+        // Check if the volunteer is already working for this NGO
+        if (volunteer.working_for.includes(ngo._id)) {
+            return res.status(400).json({ message: 'Volunteer is already working for this NGO' });
+        }
+
+        // Append the NGO to the volunteer's working_for array
+        volunteer.working_for.push(ngo._id);
+        await volunteer.save();
+
+        res.status(200).json({ message: 'Request sent and volunteer updated', volunteer });
+    } catch (error) {
+        console.error('Error sending request to volunteer:', error);
+        res.status(500).json({ message: 'Internal server error' });
+    }
+};
